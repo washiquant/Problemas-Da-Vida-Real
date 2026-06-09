@@ -7,6 +7,14 @@ def faturamento_diario():
     """
     conexao = sqlite3.connect("entregas.db")
     cursor = conexao.cursor()
+    cursor.execute("""
+CREATE TABLE IF NOT EXISTS comandas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    data_registro TEXT DEFAULT CURRENT_DATE,
+    numero_comanda TEXT,
+    valor_pedido REAL
+)
+""")
     cursor.execute("SELECT SUM(valor_pedido) FROM comandas WHERE data_registro = CURRENT_DATE")
     resultado = cursor.fetchone()[0]
     total_acumulado_do_dia = resultado if resultado is not None else 0
@@ -14,14 +22,6 @@ def faturamento_diario():
     historico_entregas = {}
     # Criamos um dicionário vazio apenas para travar comandas repetidas na mesma sessão
     historico_entregas = {}
-    cursor.execute("""
-CREATE TABLE IF NOT EXISTS comandas (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    data_registro TEXT  DEFAULT CURRENT_DATE,
-    numero_comanda TEXT,
-    valor_pedido REAL
-)
-""")
     while True :
         comanda = str(input("Qual o Numero da Comanda ? (Ou digite 'sair' para fechar)"))
         if comanda.lower() == 'sair' :
