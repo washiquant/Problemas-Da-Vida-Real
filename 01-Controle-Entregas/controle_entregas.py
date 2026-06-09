@@ -2,7 +2,7 @@ import sqlite3
 
 def faturamento_diario():
 
-    """O objetivo deste final deste projeto, é fazer as comandas de pedidos, sejam guardadas pelos seus indices, e somada seus valores
+    """O objetivo deste final deste projeto, é fazer com que as comandas de pedidos, sejam guardadas pelos seus indices, e somada seus valores
     para resolver o problema de ir somando as comandas na calculadora e em um dado momento, aquela soma sumir e você perder os valores somados
     """
     conexao = sqlite3.connect("entregas.db")
