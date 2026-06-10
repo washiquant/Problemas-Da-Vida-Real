@@ -10,7 +10,7 @@ O resultado disso era o pior cenário possível: **não tínhamos a mínima idei
 Este script em Python veio para sanar esse problema. Ele funciona como uma calculadora inteligente que:
 1. Pede o número da comanda (garantindo que você não insira a mesma taxa duas vezes por engano).
 2. Calcula o faturamento acumulado em tempo real, mostrando o total atualizado a cada nova entrega.
-3. Faz a **persistência dos dados**, salvando automaticamente cada corrida em um arquivo de texto (`comandas.txt`). Assim, mesmo que o programa feche ou o celular desligue, o seu histórico e o seu dinheiro estão salvos no disco rígido.
+3. Faz a **persistência dos dados**, salvando automaticamente cada corrida em um banco de dados (sqlite3). Assim, mesmo que o programa feche ou o celular desligue, o seu histórico e o seu dinheiro estão salvos no disco rígido.
 
 ## 🛠️ Conceitos de Programação Aplicados
 * **Estrutura de Repetição:** `while True` para manter o programa rodando durante todo o turno.
